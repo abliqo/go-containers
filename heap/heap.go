@@ -12,8 +12,8 @@ type Heap[T any] struct {
 // in descending order 'a' > 'b'.
 type CompareFunc[T any] func(a, b T) bool
 
-// New creates a new empty heap.
-func New[T any](compareFunc CompareFunc[T]) *Heap[T] {
+// NewHeap creates a new empty heap.
+func NewHeap[T any](compareFunc CompareFunc[T]) *Heap[T] {
 	return &Heap[T]{
 		compareFunc: compareFunc,
 		items:       make([]T, 0),

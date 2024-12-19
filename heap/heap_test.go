@@ -9,7 +9,7 @@ import (
 
 func TestEmptyHeap(t *testing.T) {
 	compareFunc := func(a, b int) bool { return a < b }
-	h := heap.New[int](compareFunc)
+	h := heap.NewHeap[int](compareFunc)
 
 	assert.NotNil(t, h)
 	assert.True(t, h.IsEmpty())
@@ -22,7 +22,7 @@ func TestEmptyHeap(t *testing.T) {
 
 func TestHeapBasicCases(t *testing.T) {
 	compareFunc := func(a, b int) bool { return a < b }
-	h := heap.New[int](compareFunc)
+	h := heap.NewHeap[int](compareFunc)
 
 	assert.True(t, h.IsEmpty())
 	h.Push(1)
@@ -50,7 +50,7 @@ func TestHeapBasicCases(t *testing.T) {
 
 func TestMinHeapInt(t *testing.T) {
 	compareFunc := func(a, b int) bool { return a < b }
-	h := heap.New[int](compareFunc)
+	h := heap.NewHeap[int](compareFunc)
 	assert.True(t, h.IsEmpty())
 
 	expected := []int{0, 1, 2, 3, 4, 5, 6, 7}
@@ -76,7 +76,7 @@ func TestMinHeapInt(t *testing.T) {
 
 func TestMaxHeapInt(t *testing.T) {
 	compareFunc := func(a, b int) bool { return a > b }
-	h := heap.New[int](compareFunc)
+	h := heap.NewHeap[int](compareFunc)
 	assert.True(t, h.IsEmpty())
 
 	expected := []int{7, 6, 5, 4, 3, 3, 3, 2, 2, 1, 0}
@@ -110,7 +110,7 @@ type Task struct {
 
 func TestMaxHeapCustomType(t *testing.T) {
 	compareFunc := func(a, b Task) bool { return a.priority > b.priority }
-	h := heap.New[Task](compareFunc)
+	h := heap.NewHeap[Task](compareFunc)
 	assert.True(t, h.IsEmpty())
 
 	expected := []Task{
